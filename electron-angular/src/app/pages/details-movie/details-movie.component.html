@@ -1,0 +1,55 @@
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<!-- Row -->
+<div class="row" *ngIf="movie$ | async as movie">
+  <!-- Column -->
+  <div class="col-lg-4 col-xlg-3 col-md-5">
+    <div class="card">
+      <img class="card-img" src="{{ movie.poster }}" alt="Card image" />
+    </div>
+  </div>
+  <!-- Column -->
+  <!-- Column -->
+  <div class="col-lg-8 col-xlg-9 col-md-7">
+    <div class="card">
+      <!-- Nav tabs -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="home" role="tabpanel">
+          <div class="card-body">
+            <h1>{{ movie.title }}</h1>
+            <p>
+              <small class="text-muted">Año: {{ movie.year }}</small>
+            </p>
+            <p>
+              <small class="text-muted">Director: {{ movie.director }}</small>
+            </p>
+            <p>Resumen: {{ movie.synopsis }}</p>
+            <button
+              *ngIf="!movie.rented"
+              class="btn btn-primary"
+              (click)="rent(movie.id, movie)"
+            >
+              Alquilar película
+            </button>
+            <button
+              *ngIf="movie.rented"
+              class="btn btn-danger"
+              (click)="rent(movie.id, movie)"
+            >
+              Devolver película
+            </button>
+            <button class="btn btn-danger" (click)="remove(movie.id)">
+              Borrar película
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+</div>
+<!-- Row -->
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->

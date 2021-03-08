@@ -1,0 +1,14 @@
+<div class="col-lg-8">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Añadir película</h2>
+      <app-movie-form (onsave)="save($event)"></app-movie-form>
+      <a
+        type="button"
+        class="btn btn-light waves-effect waves-light"
+        routerLink="/movies"
+        >Volver</a
+      >
+    </div>
+  </div>
+</div>
